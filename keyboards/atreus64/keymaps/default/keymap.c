@@ -32,23 +32,48 @@ enum custom_keycodes {
                       SCROLL_MOUSE_LOCK
 };
 
+#define KC_EX LSFT(KC_1)
+#define KC_DQ LSFT(KC_2)
+#define KC_PD LSFT(KC_3)
+#define KC_DL LSFT(KC_4)
+#define KC_PC LSFT(KC_5)
+#define KC_HT LSFT(KC_6)
+#define KC_AM LSFT(KC_7)
+#define KC_ST LSFT(KC_8)
+#define KC_LP LSFT(KC_9)
+#define KC_RP LSFT(KC_9)
+#define KC_LC LSFT(KC_LBRC)
+#define KC_RC LSFT(KC_RBRC)
+#define KC_TL LSFT(KC_NUHS)
+#define KC_PP LSFT(KC_NUBS)
+#define KC_US LSFT(KC_MINS)
+#define KC_CL LSFT(KC_SCLN)
+#define KC_PL LSFT(KC_EQL)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( /* Base */
-               KC_1,         KC_2,    KC_3,    KC_4,    KC_5,    KC_6,   KC_7,          KC_8,    KC_9,    KC_0,
-               KC_Q,         KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,          KC_I,    KC_O,    KC_P,
-               KC_A,         KC_S,    KC_D,    KC_F,    KC_G,    KC_H,   KC_J,          KC_K,    KC_L,    LCTL_T(KC_SCLN),
-               KC_Z,         KC_X,    KC_C,    KC_V,    KC_B,    KC_N,   KC_M,          KC_COMM, KC_DOT,  KC_SLSH,
-               LT(2,KC_ESC), KC_TAB,  KC_LBRC, KC_RBRC, KC_BSPC, KC_SPC, LT(1,KC_MINS), KC_EQL,  KC_QUOT, KC_ENT,
-               KC_LCTL,      KC_LSFT, KC_LGUI, KC_LALT
+               KC_ESC,  KC_TAB,  KC_PGUP, KC_PGDN,  KC_QUOT, KC_GRAVE, KC_LBRC, KC_NUHS, KC_RBRC, KC_NUBS,
+               KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,
+               KC_A,    KC_S,    KC_D,    KC_F,     KC_G,    KC_H,     KC_J,    KC_K,    KC_L,    LCTL_T(KC_SCLN),
+               KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    KC_N,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+               KC_DOWN, KC_LEFT, KC_UP,   KC_RIGHT, KC_BSPC, KC_SPC,   TT(1),   LT(2, KC_EQL),  KC_MINS, KC_ENT,
+               KC_LCTL, KC_LSFT, KC_LGUI, KC_LALT
   ),
+
+  //punctuation not in L0
+  // ( ) { }
+  // ^ $ ! "
+  // £ % & *
+  // ~ | _ + :
+  // DEL INS HOME END
   [1] = LAYOUT(
-               KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,   KC_F6,      KC_F7,         KC_F8,      KC_F9,         KC_F10,
-               KC_F11,  KC_HOME, KC_UP,   KC_END,   KC_PGUP, LSFT(KC_1), KC_LBRC,       LSFT(KC_7), KC_RBRC,       LSFT(KC_NUBS),
-               KC_F12,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN, KC_NUHS,    LSFT(KC_9),    LSFT(KC_2), LSFT(KC_0),    LSFT(KC_SCLN),
-               KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NUBS,    LSFT(KC_LBRC), LSFT(KC_8), LSFT(KC_RBRC), LSFT(KC_NUHS),
-               RESET,   KC_NO,   KC_NO,   KC_INS,   KC_DEL,  LSFT(KC_6), KC_NO,         KC_GRAVE,   LSFT(KC_4),    KC_NO,
+               RESET,   KC_LOCK, KC_HOME, KC_END, KC_F6,  KC_HT,   KC_LP,   KC_EX, KC_RP, KC_DL,
+               KC_7,    KC_8,    KC_9,    KC_F7,  KC_F8,  KC_DQ,   KC_LC,   KC_ST, KC_RC, KC_PC,
+               KC_4,    KC_5,    KC_6,    KC_F9,  KC_F10, KC_TL,   KC_PP,   KC_US, KC_PL, KC_CL,
+               KC_1,    KC_2,    KC_3,    KC_F11, KC_F12, KC_F1,   KC_F2,   KC_F3, KC_F4, KC_F5,
+               KC_PD,   KC_0,    KC_DOT,  KC_INS, KC_DEL, KC_TRNS, KC_TRNS, KC_F6, KC_F7, KC_TRNS,
                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-               ),\
+               ),                               \
 
   [2] = LAYOUT(KC_TRNS, KC_TRNS,    KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                KC_TRNS, KC_TRNS,    KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
