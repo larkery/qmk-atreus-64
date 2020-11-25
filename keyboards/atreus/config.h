@@ -29,6 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         Atreus
 #define DESCRIPTION     q.m.k. keyboard firmware for Atreus
 
+#define IGNORE_MOD_TAP_INTERRUPT
+
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 11
@@ -39,7 +41,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #   define MATRIX_ROW_PINS { D0, D1, D3, D2 }
 #if defined(PCBDOWN)
 #   define MATRIX_COL_PINS { B7, D6, F7, F6, B6, D4, E6, B4, B5, C6, D7 }
+#elif defined(PCBWRONG)
+#   define MATRIX_COL_PINS { D7, C6, B5, B4, E6, D4, D6, F6, F7, B6, B7 }
 #else
+//                             q   w   e   r   t   m   y   u   i   o   p
 #   define MATRIX_COL_PINS { D7, C6, B5, B4, E6, D4, B6, F6, F7, D6, B7 }
 #endif
 #   define UNUSED_PINS
